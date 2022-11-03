@@ -8,20 +8,20 @@
   "Turns a number from a number to a list"
   [number]
   (loop [n number
-         l '()]
+         l []]
     (if (> n 0)
       (recur (quot n 10) (conj l (rem n 10)))
-      (do l))))
+      l)))
 
 (defn is_palindrome
   "Checks if a six digit number is a palindrome"
   [number]
   (loop [n (digest number)]
     (if (= (count n) 0)
-      (do true)
+      true
       (if (= (first n) (last n))
         (recur (drop 1 (drop-last n)))
-        (do false)))))
+        false))))
 
 (loop [i 999]
   (when (>= i 100)
